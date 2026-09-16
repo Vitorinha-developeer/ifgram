@@ -11,7 +11,7 @@ public class Users {
 
     public String getUser(){
 
-        return "Olá! Chamei o get";
+        return "Olá, Chamei o get";
     }
 
     @PostMapping
