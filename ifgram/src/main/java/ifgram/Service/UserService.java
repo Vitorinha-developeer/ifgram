@@ -21,7 +21,7 @@ public class UserService {
     }
 
     @Transactional
-    public userResponse criar(UserRequest request){
+    public UserResponse criar(UserRequest request){
 
         // regra de negócio: O email não pode repetir
 
