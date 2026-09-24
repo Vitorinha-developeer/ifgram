@@ -15,7 +15,7 @@ public class UserService {
 
     //Injeção de dependências pelo construtor
 
-    Public UserService (UserRepository repository){
+    public UserService (UserRepository repository){
 
         this.repository=repository;
     }

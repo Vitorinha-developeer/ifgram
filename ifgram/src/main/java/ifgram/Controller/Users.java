@@ -1,11 +1,22 @@
 package ifgram.Controller;
 
+import ifgram.DTOs.UserRequest;
+import ifgram.DTOs.UserResponse;
+import ifgram.Service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping ("users")
 
 public class Users {
+
+    private final UserService service;
+
+    public Users (UserService service){
+
+        this.service=service;
+    }
 
     @GetMapping
 
@@ -16,9 +27,9 @@ public class Users {
 
     @PostMapping
 
-    public String postUser(){
+    public UserResponse criar(@Valid @RequestBody UserRequest request){
 
-        return "Chamei o endpoint com o post";
+        return service.criar(request);
     }
 
     @DeleteMapping

@@ -1,6 +1,5 @@
 package ifgram.DTOs;
 
-
 import org.apache.catalina.User;
 
 public record UserResponse(Long id, String nome, String email) {
