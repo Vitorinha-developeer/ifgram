@@ -17,13 +17,11 @@ public class Users {
     @Column (nullable = false, unique = true)
     private String email;
 
-    public Users(){
 
-        this.id=id;
-        this.email=email;
-        this.nome=nome;
+    public Users(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
     }
-
 
     public Long getId() {
         return id;

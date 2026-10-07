@@ -27,7 +27,7 @@ public class Users {
 
     @PostMapping
 
-    public UserResponse criar(@Valid @RequestBody UserRequest request){
+    public UserResponse criar(@Valid @RequestBody UserRequest request) throws Exception {
 
         return service.criar(request);
     }

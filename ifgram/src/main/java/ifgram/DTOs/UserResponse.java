@@ -1,12 +1,12 @@
 package ifgram.DTOs;
 
-import org.apache.catalina.User;
+import ifgram.Model.Users;
 
 public record UserResponse(Long id, String nome, String email) {
 
-    public static UserResponse from (User user){
+    public static UserResponse from (Users user){
 
-        return new UserResponse(user.getNome(), user.getId, user.getEmail());
+        return new UserResponse(user.getId(), user.getNome(),user.getEmail());
     }
 
 }

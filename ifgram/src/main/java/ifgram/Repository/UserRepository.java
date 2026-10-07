@@ -1,22 +1,23 @@
 package ifgram.Repository;
 
-import org.apache.catalina.User;
+import ifgram.Model.Users;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository <User, Long> {
+public interface UserRepository extends JpaRepository <Users, Long> {
 
     boolean exystsByEmail(String email);
 
-    Optional<User> findByEmail(String Email);
+    Optional<Users> findByEmail(String Email);
 
-    List<User> findByNomeContainingIgnoreCase (String trecho);
+    List<Users> findByNomeContainingIgnoreCase (String trecho);
 
     @Query ("Select u from User u where u.email like concat ('%', :dominio)")
 
-    List<User> doDominio (String dominio);
+    List<Users> doDominio (String dominio);
 
 }
