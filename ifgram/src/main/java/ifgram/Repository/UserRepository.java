@@ -10,13 +10,13 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository <Users, Long> {
 
-    boolean exystsByEmail(String email);
+    boolean existsByEmail(String email);
 
     Optional<Users> findByEmail(String Email);
 
     List<Users> findByNomeContainingIgnoreCase (String trecho);
 
-    @Query ("Select u from User u where u.email like concat ('%', :dominio)")
+    @Query ("Select u from Users u where u.email like concat ('%', :dominio)")
 
     List<Users> doDominio (String dominio);
 

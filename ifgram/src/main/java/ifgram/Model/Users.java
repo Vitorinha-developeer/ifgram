@@ -17,6 +17,7 @@ public class Users {
     @Column (nullable = false, unique = true)
     private String email;
 
+    public Users(){}
 
     public Users(String nome, String email) {
         this.nome = nome;

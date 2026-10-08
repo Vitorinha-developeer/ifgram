@@ -6,6 +6,8 @@ import ifgram.Service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping ("users")
 
@@ -20,16 +22,18 @@ public class Users {
 
     @GetMapping
 
-    public String getUser(){
-
-        return "Olá, Chamei o get!";
+    public List<UserResponse> getUsers(){
+        List<UserResponse>listaUsuarios=service.buscarTodosUsuarios();
+        return listaUsuarios;
     }
 
     @PostMapping
 
-    public UserResponse criar(@Valid @RequestBody UserRequest request) throws Exception {
+    public UserResponse postUser (UserRequest request) throws Exception{
 
-        return service.criar(request);
+        UserResponse userResponse = service.criar(request);
+
+        return userResponse;
     }
 
     @DeleteMapping
