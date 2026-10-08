@@ -22,7 +22,7 @@ public class Users {
 
     public String getUser(){
 
-        return "Olá, Chamei o get";
+        return "Olá, Chamei o get!";
     }
 
     @PostMapping
@@ -36,13 +36,13 @@ public class Users {
 
     public String deleteUser(){
 
-        return "Chamei o delete";
+        return "Chamei o delete!";
     }
 
     @PutMapping
 
     public String putUser (){
 
-        return "Chamei o put";
+        return "Chamei o put!";
     }
 }
