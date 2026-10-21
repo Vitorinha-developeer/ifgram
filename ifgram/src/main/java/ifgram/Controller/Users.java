@@ -45,8 +45,8 @@ public class Users {
 
     @PutMapping
 
-    public String putUser (){
+    public UserResponse UpdateUser (UserRequest request) throws Exception{
 
-        return "Chamei o put!";
+        return service.atalizarUsuario(request);
     }
 }

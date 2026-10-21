@@ -5,11 +5,11 @@ import ifgram.DTOs.UserResponse;
 import ifgram.Repository.UserRepository;
 import jakarta.transaction.Transactional;
 import ifgram.Model.Users;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 
@@ -52,6 +52,20 @@ public class UserService {
         }
 
         return listaUsuariosResponse;
+
+    }
+
+    public UserResponse atalizarUsuario (UserRequest request) throws Exception{
+        Optional<Users> usuario = repository.findByEmail(request.email());
+        if (usuario.isEmpty()){
+            throw new Exception("usuário não existe na base de dados.");
+        }
+
+        Users usuarioSalvo=usuario.get();
+        usuarioSalvo.setNome(request.nome());
+        repository.save(usuarioSalvo);
+
+        return UserResponse.from(usuarioSalvo);
 
     }
 }
