@@ -38,9 +38,12 @@ public class Users {
 
     @DeleteMapping
 
-    public String deleteUser(){
+    public String deleteUser(UserRequest request) throws Exception{
 
-        return "Chamei o delete!";
+        service.deletarUsuario(request);
+
+        return "Usuário não cadastrado";
+
     }
 
     @PutMapping

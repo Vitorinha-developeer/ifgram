@@ -66,6 +66,14 @@ public class UserService {
         repository.save(usuarioSalvo);
 
         return UserResponse.from(usuarioSalvo);
+    }
+    public void deletarUsuario (UserRequest request) throws Exception {
+        Optional<Users> usuario = repository.findByEmail((request.email()));
+        if (usuario.isEmpty()) {
+            throw new Exception("Usuário não existe no banco de dados, por isso não pode ser deletado.");
+        }
 
+        Users usuarioDelete = usuario.get();
+        repository.delete(usuarioDelete);
     }
 }
