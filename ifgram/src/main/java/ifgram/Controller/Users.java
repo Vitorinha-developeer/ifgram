@@ -3,7 +3,6 @@ package ifgram.Controller;
 import ifgram.DTOs.UserRequest;
 import ifgram.DTOs.UserResponse;
 import ifgram.Service.UserService;
-import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,7 +41,7 @@ public class Users {
 
         service.deletarUsuario(request);
 
-        return "Usuário não cadastrado";
+        return "Usuário Deletado com sucesso";
 
     }
 
