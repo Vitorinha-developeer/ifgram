@@ -3,7 +3,6 @@ package ifgram.DTOs;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.apache.catalina.User;
 
 public record UserRequest(
         @Email
