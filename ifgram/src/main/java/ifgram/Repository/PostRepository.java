@@ -12,7 +12,7 @@ public interface PostRepository extends JpaRepository<Post,Long> {
 
     List<Post> findByLegendaContainingIgnoreCase(String trecho);
 
-    Long countByAutorID(Long autorID);
+    Long countByAutorId(Long autorId);
 
     @Query ("SELECT p FROM Post p ORDER BY p.criadoEm DESC")
     List<Post>Buscarfeedmaisnovos();

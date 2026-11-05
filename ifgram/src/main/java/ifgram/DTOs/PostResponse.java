@@ -5,10 +5,10 @@ import ifgram.Model.Post;
 import java.time.LocalDateTime;
 
 public record PostResponse(Long id, Long autorId, String imagemURL, String legenda, LocalDateTime criadoEm,
-                           String autorNome) {
+                            String autorNome) {
 
     public static PostResponse from (Post post){
 
-        return new UserResponse(post.getId(), post.getAutor().getNome(), post.getImagemURL(), post
+        return new PostResponse(post.getId(), post.getAutor().getId(), post.getImagemURL(), post.getLegenda(), post.getCriadoEm(), post.getAutor().getNome());
     }
 }
