@@ -11,3 +11,4 @@ public class IfgramApplication {
 	}
 
 }
+// Última aula eu conclui a parte 6 das especificações do projeto, dia 11/11.
