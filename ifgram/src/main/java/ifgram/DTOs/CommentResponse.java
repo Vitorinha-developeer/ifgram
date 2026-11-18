@@ -12,6 +12,6 @@ public record CommentResponse(Long id, String texto, LocalDateTime criadoEm,
     public static CommentResponse from (ModelComent comment){
 
         return new CommentResponse (comment.getId(), comment.getTexto(), comment.getCriadoEm(),
-                Post.getAutor(), comment.getPost());
+                comment.getAutor(), comment.getPost());
     }
 }

@@ -24,7 +24,7 @@ public class Post {
 
     @ManyToOne(optional = false)
     @JoinColumn(name="user_id")
-    private static Users autor;
+    private Users autor;
 
     public Post(){
 
@@ -35,6 +35,11 @@ public class Post {
         this.imagemURL=imagemURL;
         this.legenda=legenda;
         this.autor=autor;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.criadoEm = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -69,7 +74,7 @@ public class Post {
         this.criadoEm = criadoEm;
     }
 
-    public static Users getAutor() {
+    public Users getAutor() {
         return autor;
     }
 
