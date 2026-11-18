@@ -2,6 +2,8 @@ package ifgram.Model;
 
 import jakarta.persistence.*;
 
+
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -26,7 +28,7 @@ public class ModelComent {
 
     @ManyToOne(optional = false)
     @JoinColumn(name="user_id")
-    private Post autor;
+    private Users autor;
 
     public ModelComent(){}
 
@@ -60,11 +62,11 @@ public class ModelComent {
         this.criadoEm = criadoEm;
     }
 
-    public Post getAutor() {
+    public Users getAutor() {
         return autor;
     }
 
-    public void setAutor(Post autor) {
+    public void setAutor(Users autor) {
         this.autor = autor;
     }
 
@@ -75,5 +77,4 @@ public class ModelComent {
     public void setPost(Post post) {
         this.post = post;
     }
-
 }

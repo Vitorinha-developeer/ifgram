@@ -2,6 +2,7 @@ package ifgram.Model;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table (name="usuarios")
 
@@ -23,6 +24,7 @@ public class Users {
         this.nome = nome;
         this.email = email;
     }
+
 
     public Long getId() {
         return id;
@@ -47,5 +49,6 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
 

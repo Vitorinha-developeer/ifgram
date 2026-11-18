@@ -24,7 +24,7 @@ public class Post {
 
     @ManyToOne(optional = false)
     @JoinColumn(name="user_id")
-    private Users autor;
+    private static Users autor;
 
     public Post(){
 
@@ -69,7 +69,7 @@ public class Post {
         this.criadoEm = criadoEm;
     }
 
-    public Users getAutor() {
+    public static Users getAutor() {
         return autor;
     }
 
