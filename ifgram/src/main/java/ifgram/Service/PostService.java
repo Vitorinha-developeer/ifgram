@@ -7,7 +7,9 @@ import ifgram.Model.Users;
 import ifgram.Repository.PostRepository;
 import ifgram.Repository.UserRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +36,10 @@ public class PostService {
         Optional<Users> autor = userRepository.findById(request.autorId());
         if (autor.isEmpty()){
 
-            throw new Exception("Autor com ID " + request.autorId() + " não encontrado.");
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Não é possível criar um post com um autor que não existe."
+            );
         }
 
         Post post = new Post();

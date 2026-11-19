@@ -38,9 +38,15 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<PostResponse> criar(@Valid @RequestBody PostRequest request) throws Exception {
-        PostResponse novoPost = postService.criar(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novoPost);
+    public ResponseEntity<?> criar(@Valid @RequestBody PostRequest request) {
+        try {
+            PostResponse novoPost = postService.criar(request);
+            return ResponseEntity.status(HttpStatus.CREATED).body(novoPost);
+        } catch (org.springframework.web.server.ResponseStatusException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getReason());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
     @DeleteMapping("/{id}")
